@@ -30,4 +30,5 @@ jobs:
         run: |
           vcpkg version
           clang -v
+          gcc -v
           cmake --version

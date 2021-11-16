@@ -7,7 +7,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: bash .github/scripts/configure.sh
+        run: |
+          brew install ninja
+          bash .github/scripts/configure.sh
       - name: Build
         run: bash .github/scripts/build.sh
 
@@ -26,7 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: bash .github/scripts/configure-linux.sh
+        run: |
+          sudo apt install build-essential
+          bash .github/scripts/configure-linux.sh
       - name: Build
         run: bash .github/scripts/build.sh
 

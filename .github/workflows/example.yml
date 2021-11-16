@@ -28,9 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: |
-          apt install make
-          bash .github/scripts/configure-linux.sh
+        run: cmake -B build
       - name: Build
         run: bash .github/scripts/build.sh
 

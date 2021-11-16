@@ -1,29 +1,39 @@
 name: hello-git-actions
 on: [push]
 jobs:
-  macos-build:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure
-        run: bash .github/scripts/configure.sh
-      - name: Build
-        run: bash .github/scripts/build.sh
-  windows-build:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure
-        run: .github/scripts/configure.bat
-      - name: Build
-        run: .github/scripts/build.bat
+  # macos-build:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - uses: actions/cache@2
+  #       id: cache
+  #       with:
+  #         path: /Users/runner/.cache/vcpkg
+  #         key: ${{ runner.os }}-${{ hashFiles('vcpkg.json') }}
+  #     - name: Configure
+  #       run: bash .github/scripts/configure.sh
+  #     - name: Build
+  #       run: bash .github/scripts/build.sh
+  # windows-build:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Configure
+  #       run: .github/scripts/configure.bat
+  #     - name: Build
+  #       run: .github/scripts/build.bat
   linux-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - uses: actions/cache@2
+        id: cache
+        with:
+          path: /Users/runner/.cache/vcpkg
+          key: ${{ runner.os }}-${{ hashFiles('vcpkg.json') }}
       - name: Configure
         run: bash .github/scripts/configure-linux.sh
       - name: Build

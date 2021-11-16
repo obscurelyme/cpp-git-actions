@@ -6,7 +6,7 @@ jobs:
   #   steps:
   #     - name: Checkout
   #       uses: actions/checkout@v2
-  #     - uses: actions/cache@2
+  #     - uses: actions/cache@v2
   #       id: cache
   #       with:
   #         path: /Users/runner/.cache/vcpkg
@@ -32,8 +32,8 @@ jobs:
       - uses: actions/cache@v2
         id: cache
         with:
-          path: /Users/runner/.cache/vcpkg
-          key: ${{ runner.os }}-${{ hashFiles('vcpkg.json') }}
+          path: /home/runner/.cache/vcpkg
+          key: vcpkg-archives-${{ runner.os }}-${{ hashFiles('vcpkg.json') }}
       - name: Configure
         run: bash .github/scripts/configure-linux.sh
       - name: Build

@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: bash .github/scripts/configure-linux.bat
+        run: bash .github/scripts/configure-linux.sh
       - name: Build
         run: bash .github/scripts/build.sh
 

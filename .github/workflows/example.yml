@@ -40,3 +40,6 @@ jobs:
       - name: Deploy
         run: |
           echo "Hello, World!"
+      - name: Install Butler
+        run: |
+          bash ./scripts/install-butler.sh

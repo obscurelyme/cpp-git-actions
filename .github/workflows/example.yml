@@ -1,42 +1,44 @@
 name: hello-git-actions
 on: [push]
 jobs:
-  macos-build:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Check vcpkg, clang, and cmake
-        run: |
-          vcpkg version
-          clang -v
-          cmake --version
-  windows-build:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Check vcpkg, clang, and cmake
-        run: |
-          vcpkg version
-          clang -v
-          cmake --version
-  linux-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Check vcpkg, clang, and cmake
-        run: |
-          vcpkg version
-          clang -v
-          gcc -v
-          cmake --version
+  # macos-build:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Check vcpkg, clang, and cmake
+  #       run: |
+  #         vcpkg version
+  #         clang -v
+  #         cmake --version
+  # windows-build:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Check vcpkg, clang, and cmake
+  #       run: |
+  #         vcpkg version
+  #         clang -v
+  #         cmake --version
+  # linux-build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Check vcpkg, clang, and cmake
+  #       run: |
+  #         vcpkg version
+  #         clang -v
+  #         gcc -v
+  #         cmake --version
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [linux-build, macos-build, windows-build]
+    # needs: [linux-build, macos-build, windows-build]
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Deploy
         run: |
           echo "Hello, World!"

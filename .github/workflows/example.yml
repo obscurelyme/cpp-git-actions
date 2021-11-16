@@ -1,27 +1,27 @@
 name: hello-git-actions
 on: [push]
 jobs:
-  macos-build:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure
-        run: |
-          brew install ninja
-          bash .github/scripts/configure.sh
-      - name: Build
-        run: bash .github/scripts/build.sh
+  # macos-build:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Configure
+  #       run: |
+  #         brew install ninja
+  #         bash .github/scripts/configure.sh
+  #     - name: Build
+  #       run: bash .github/scripts/build.sh
 
-  windows-build:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure
-        run: .github/scripts/configure.bat
-      - name: Build
-        run: .github/scripts/build.bat
+  # windows-build:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Configure
+  #       run: .github/scripts/configure.bat
+  #     - name: Build
+  #       run: .github/scripts/build.bat
   linux-build:
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Configure
         run: |
-          sudo apt install build-essential
+          apt install make
           bash .github/scripts/configure-linux.sh
       - name: Build
         run: bash .github/scripts/build.sh

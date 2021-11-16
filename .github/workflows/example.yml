@@ -7,9 +7,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: .github/scripts/configure.sh
+        run: bash .github/scripts/configure.sh
       - name: Build
-        run: .github/scripts/build.sh
+        run: bash .github/scripts/build.sh
 
   windows-build:
     runs-on: windows-latest
@@ -26,9 +26,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: .github/scripts/configure-linux.sh
+        run: bash .github/scripts/configure-linux.sh
       - name: Build
-        run: .github/scripts/build.sh
+        run: bash .github/scripts/build.sh
 
   deploy:
     runs-on: ubuntu-latest

@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: cmake -B build
+        run: bash .github/scripts/configure.sh
       - name: Build
         run: bash .github/scripts/build.sh
   windows-build:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: cmake -B build
+        run: .github/scripts/configure.bat
       - name: Build
         run: .github/scripts/build.bat
   linux-build:
@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: cmake -B build
+        run: bash .github/scripts/configure-linux.bat
       - name: Build
         run: bash .github/scripts/build.sh
 

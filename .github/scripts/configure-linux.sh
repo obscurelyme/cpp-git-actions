@@ -1,3 +1,6 @@
 #!/bin/bash
 
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE:STRING=~/vcpkg/scripts/buildsystems/vcpkg.cmake -G "Unix Makefiles"
+cmake --no-warn-unused-cli \
+  -B build \
+  -S . \
+  -DCMAKE_TOOLCHAIN_FILE="~/vcpkg/scripts/buildsystems/vcpkg.cmake"
